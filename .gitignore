@@ -1,0 +1,10 @@
+# Abhängigkeiten
+node_modules/
+
+# Astro Build-Output
+dist/
+.astro/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
