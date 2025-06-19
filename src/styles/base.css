@@ -1,0 +1,19 @@
+/* Grundlayout & Typografie */
+:root{
+  --accent:#1a4f8b;
+  --bg:#fafafa;
+}
+html{font-family:system-ui,Roboto,sans-serif;font-size:17px;line-height:1.6}
+body{margin:0;background:var(--bg);color:#222;padding:0 1rem}
+main{max-width:720px;margin:3rem auto}
+
+/* Überschriften */
+h1,h2,h3{color:var(--accent);margin-top:2.5rem;line-height:1.3}
+
+/* Tabellen */
+table{width:100%;border-collapse:collapse;margin:1rem 0}
+td,th{border:1px solid #ccc;padding:.5rem;text-align:left}
+
+/* Links */
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
