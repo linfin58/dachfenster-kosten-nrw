@@ -17,3 +17,11 @@ td,th{border:1px solid #ccc;padding:.5rem;text-align:left}
 /* Links */
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
+
+/* Content-Box leicht schattieren */
+main{
+  background:#ffffff;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  border-radius:6px;
+  padding:3rem 1.2rem;
+}

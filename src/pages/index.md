@@ -54,3 +54,12 @@ Ja, wenn sie **Sonnenschutz** und **U‑Wert‑Verbesserung** nachweisen.
 ### Wie alt ist zu alt für den Tausch?  
 Fenster vor Baujahr 1995 erreichen meist U‑Werte > 2,0 – ein Austausch lohnt fast immer.
 
+## Weitere Praxis‑Artikel
+
+- [U‑Wert berechnen](./dachfenster-uwert-berechnen)
+- [Kondenswasser verhindern](./kondenswasser-verhindern-dachfenster)
+- [Förderung NRW 2025](./dachfenster-foerderung-nrw-2025)
+- [Innenfutter tauschen](./innenfutter-selber-tauschen)
+- [Aufkeilrahmen Vorteile](./einbau-aufkeilrahmen-vorteile)
+
+
