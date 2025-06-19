@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Base.astro
 title: "Dachfenster ersetzen: Kosten & Förderungen in NRW 2025"
 description: "Aktuelle Preisspannen, Handwerkerstunden, BAFA-Förderung und Steuer­vorteile"
 pubDate: 2025-06-16
