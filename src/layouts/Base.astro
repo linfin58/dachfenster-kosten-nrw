@@ -10,6 +10,50 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+---
+// oberer Astro‑Front‑Matter‑Teil bleibt unverändert
+import "../styles/base.css";
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <!-- ▼ NEUER Header + Hamburger -->
+    <header class="site-header">
+      <button id="menuToggle" aria-label="Menü öffnen / schließen">☰</button>
+      <h1 class="site-title"><a href="/">Dachfenster NRW</a></h1>
+    </header>
+
+    <!-- ▼ NEUE Seitenleiste -->
+    <nav id="sideMenu">
+      <ul>
+        <li><strong>Praxis‑Artikel</strong></li>
+        <li><a href="/dachfenster-uwert-berechnen">U‑Wert berechnen</a></li>
+        <li><a href="/kondenswasser-verhindern-dachfenster">Kondenswasser verhindern</a></li>
+        <li><a href="/dachfenster-foerderung-nrw-2025">Förderung NRW 2025</a></li>
+        <li><a href="/innenfutter-selber-tauschen">Innenfutter tauschen</a></li>
+        <li><a href="/einbau-aufkeilrahmen-vorteile">Aufkeilrahmen Vorteile</a></li>
+        <!-- ▼ restliche 15 Unterseiten einfach hier als <li><a …></a></li> anfügen -->
+      </ul>
+    </nav>
+
+    <main><slot /></main>
+
+    <footer>
+      © 2025 | <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
+    </footer>
+
+    <script src="/menu.js" defer></script>
+  </body>
+</html>
+
     <main>
       <slot />
     </main>
