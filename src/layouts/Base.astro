@@ -1,47 +1,56 @@
 ---
 import "../styles/base.css";
-const { title } = Astro.props;
----
+const { title = "Dachfenster NRW" } = Astro.props;
 
+/*  ▼  Array aller Unterseiten (Dateiname ohne .md & Link‑Titel)  */
+const navPages = [
+  ["dachfenster-uwert-berechnen",          "U‑Wert berechnen"],
+  ["kondenswasser-verhindern-dachfenster", "Kondenswasser verhindern"],
+  ["dachfenster-foerderung-nrw-2025",      "Förderung NRW 2025"],
+  ["innenfutter-selber-tauschen",          "Innenfutter tauschen"],
+  ["einbau-aufkeilrahmen-vorteile",        "Aufkeilrahmen Vorteile"],
+  // ►► hier deine restlichen 15 Dateinamen ergänzen ◄◄
+];
+---
 <!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
   </head>
 
   <body>
-    <!-- ─────────── Header + Hamburger ─────────── -->
+    <!-- ▸ Kopfzeile mit Hamburger ◂ -->
     <header class="site-header">
       <button id="menuToggle" aria-label="Menü öffnen / schließen">☰</button>
       <h1 class="site-title"><a href="/">Dachfenster NRW</a></h1>
     </header>
 
-    <!-- ─────────── Seitliches Menü ─────────── -->
+    <!-- ▸ seitliches Navigationsmenü ◂ -->
     <nav id="sideMenu">
       <ul>
         <li><strong>Praxis‑Artikel</strong></li>
-        <li><a href="/dachfenster-uwert-berechnen">U‑Wert berechnen</a></li>
-        <li><a href="/kondenswasser-verhindern-dachfenster">Kondenswasser verhindern</a></li>
-        <li><a href="/dachfenster-foerderung-nrw-2025">Förderung NRW 2025</a></li>
-        <li><a href="/innenfutter-selber-tauschen">Innenfutter tauschen</a></li>
-        <li><a href="/einbau-aufkeilrahmen-vorteile">Aufkeilrahmen Vorteile</a></li>
-        <!-- ▼ restliche Unterseiten hier als weitere <li><a href="…">Titel</a></li> ergänzen -->
+        {navPages.map(([slug, label]) => (
+          <li><a href={`/${slug}`}>{label}</a></li>
+        ))}
       </ul>
     </nav>
 
-    <!-- ─────────── Seiten‑Inhalt ─────────── -->
-    <main>
-      <slot />
-    </main>
+    <!-- ▸ Hauptspalte + Werbespalte ◂ -->
+    <div class="page-wrap">
+      <main><slot /></main>
 
-    <!-- ─────────── Footer ─────────── -->
+      <aside class="ad-slot">
+        <!-- Platzhalter – hier später AdSense‑Code einfügen -->
+        <div class="ad-placeholder">Anzeige 300 × 600</div>
+      </aside>
+    </div>
+
     <footer>
-      © 2025 | <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
+      © 2025 | <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
     </footer>
 
-    <!-- JS für Hamburger / Menü -->
     <script src="/menu.js" defer></script>
   </body>
 </html>
