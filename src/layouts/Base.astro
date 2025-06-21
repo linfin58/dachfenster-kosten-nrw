@@ -2,36 +2,23 @@
 import "../styles/base.css";
 const { title } = Astro.props;
 ---
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-  </head>
-  <body>
----
-// oberer Astro‑Front‑Matter‑Teil bleibt unverändert
-import "../styles/base.css";
-const { title } = Astro.props;
----
 
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
 
   <body>
-    <!-- ▼ NEUER Header + Hamburger -->
+    <!-- ─────────── Header + Hamburger ─────────── -->
     <header class="site-header">
       <button id="menuToggle" aria-label="Menü öffnen / schließen">☰</button>
       <h1 class="site-title"><a href="/">Dachfenster NRW</a></h1>
     </header>
 
-    <!-- ▼ NEUE Seitenleiste -->
+    <!-- ─────────── Seitliches Menü ─────────── -->
     <nav id="sideMenu">
       <ul>
         <li><strong>Praxis‑Artikel</strong></li>
@@ -40,25 +27,21 @@ const { title } = Astro.props;
         <li><a href="/dachfenster-foerderung-nrw-2025">Förderung NRW 2025</a></li>
         <li><a href="/innenfutter-selber-tauschen">Innenfutter tauschen</a></li>
         <li><a href="/einbau-aufkeilrahmen-vorteile">Aufkeilrahmen Vorteile</a></li>
-        <!-- ▼ restliche 15 Unterseiten einfach hier als <li><a …></a></li> anfügen -->
+        <!-- ▼ restliche Unterseiten hier als weitere <li><a href="…">Titel</a></li> ergänzen -->
       </ul>
     </nav>
 
-    <main><slot /></main>
-
-    <footer>
-      © 2025 | <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
-    </footer>
-
-    <script src="/menu.js" defer></script>
-  </body>
-</html>
-
+    <!-- ─────────── Seiten‑Inhalt ─────────── -->
     <main>
       <slot />
     </main>
-<footer style="margin:4rem auto 2rem;text-align:center;font-size:.9rem;color:#555">
-  <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a>
-</footer>
+
+    <!-- ─────────── Footer ─────────── -->
+    <footer>
+      © 2025 | <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
+    </footer>
+
+    <!-- JS für Hamburger / Menü -->
+    <script src="/menu.js" defer></script>
   </body>
 </html>
