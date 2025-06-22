@@ -11,4 +11,4 @@ Wir nehmen den Schutz Ihrer Daten ernst … *(Kurzfassung, reicht für Demo; sp�
 Beim Aufrufen dieser Website werden automatisch …
 
 ## 3 | Kontakt  
-Bei Fragen zum Datenschutz schreiben Sie an **finn@example.com**.
+Bei Fragen zum Datenschutz schreiben Sie an **finn.glass@web.de**.
