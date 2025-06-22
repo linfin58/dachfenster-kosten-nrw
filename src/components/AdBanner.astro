@@ -1,0 +1,28 @@
+---
+/* props:
+ *  slot = „top“, „in-article“, „sidebar“, „footer“ … (frei wählbar für CSS)
+ *  format = „auto“ (meist ausreichend) oder „rectangle“, „horizontal“, …
+ *  fullWidth (bool) – nur bei responsive „in‑article“
+ */
+const { slot = 'default', format = 'auto', fullWidth = false } = Astro.props;
+---
+
+<aside class={`ad-slot ad-${slot}`}>
+  <ins class="adsbygoogle"
+       style={fullWidth ? 'display:block;width:100%;' : 'display:block'}
+       data-ad-client="ca-pub-0000000000000000"
+       data-ad-slot="1234567890"
+       data-ad-format={format}
+       data-full-width-responsive={fullWidth ? 'true' : 'false'}></ins>
+</aside>
+
+<script is:inline>
+  /* global adsbygoogle */
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<style is:global>
+  .ad-slot { margin: 2rem auto; text-align:center; }
+  .ad-sidebar         { margin:0 0 2rem 0; }
+  /* füge bei Bedarf media‑queries hinzu */
+</style>

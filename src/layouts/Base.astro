@@ -1,6 +1,8 @@
 ---
 import "../styles/base.css";
 const { title = "Dachfenster NRW" } = Astro.props;
+import AdBanner from '../components/AdBanner.astro';
+---
 
 /* ❶  Die Liste aller Praxis‑Artikel (Pfad ➜ src/pages)  */
 const menu = [
@@ -32,6 +34,16 @@ const menu = [
 <!DOCTYPE html>
 <html lang="de">
 <head>
+---
+// nichts im Front‑Matter ändern
+---
+<head>
+  <!-- Google AdSense (wird auf jeder Seite genau einmal geladen) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-pub-2438324761912025"
+          crossorigin="anonymous"></script>
+  
+  <!-- ▸ bestehende Meta‑Tags, Title, CSS‑Einbindungen folgen hier … -->
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{title}</title>
@@ -54,17 +66,16 @@ const menu = [
       </nav>
     </aside>
 
-    <!-- Hauptinhalt -->
-    <main><slot /></main>
+    <AdBanner slot="in-article" format="auto" fullWidth />
 
-    <!-- Werbespalte (Platzhalter) -->
-    <aside class="ad-slot">
-      <div class="ad-placeholder">300 × 600 Anzeige</div>
-    </aside>
-  </div>
+    <!-- rechte Werbespalte -->
+<aside class="sidebar">
+  <AdBanner slot="sidebar" format="rectangle" />
+</aside>
 
   <!-- ▸ ❹  Fußzeile ----------------------------------------------------------- -->
   <footer>
+<AdBanner slot="footer" format="horizontal" fullWidth />
     © 2025 · <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a>
   </footer>
 
