@@ -1,17 +1,9 @@
 ---
+/* Front‑matter: load global CSS + pass title */
 import "../styles/base.css";
-const { title = "Dachfenster NRW" } = Astro.props;
-
-/*  ▼  Array aller Unterseiten (Dateiname ohne .md & Link‑Titel)  */
-const navPages = [
-  ["dachfenster-uwert-berechnen",          "U‑Wert berechnen"],
-  ["kondenswasser-verhindern-dachfenster", "Kondenswasser verhindern"],
-  ["dachfenster-foerderung-nrw-2025",      "Förderung NRW 2025"],
-  ["innenfutter-selber-tauschen",          "Innenfutter tauschen"],
-  ["einbau-aufkeilrahmen-vorteile",        "Aufkeilrahmen Vorteile"],
-  // ►► hier deine restlichen 15 Dateinamen ergänzen ◄◄
-];
+const { title = "Dachfenster NRW" } = Astro.props;
 ---
+
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -21,36 +13,36 @@ const navPages = [
   </head>
 
   <body>
-    <!-- ▸ Kopfzeile mit Hamburger ◂ -->
+    <!-- ───────── Header + Hamburger ───────── -->
     <header class="site-header">
       <button id="menuToggle" aria-label="Menü öffnen / schließen">☰</button>
-      <h1 class="site-title"><a href="/">Dachfenster NRW</a></h1>
+      <h1 class="site-title"><a href="/">Dachfenster&nbsp;NRW</a></h1>
     </header>
 
-    <!-- ▸ seitliches Navigationsmenü ◂ -->
+    <!-- ───────── Seitenmenü (links) ───────── -->
     <nav id="sideMenu">
       <ul>
         <li><strong>Praxis‑Artikel</strong></li>
-        {navPages.map(([slug, label]) => (
-          <li><a href={`/${slug}`}>{label}</a></li>
-        ))}
+        <li><a href="/dachfenster-uwert-berechnen">U‑Wert berechnen</a></li>
+        <li><a href="/kondenswasser-verhindern-dachfenster">Kondenswasser verhindern</a></li>
+        <li><a href="/dachfenster-foerderung-nrw-2025">Förderung NRW 2025</a></li>
+        <li><a href="/innenfutter-selber-tauschen">Innenfutter tauschen</a></li>
+        <li><a href="/einbau-aufkeilrahmen-vorteile">Aufkeilrahmen Vorteile</a></li>
+        <!-- ► restliche Unterseiten als weitere <li><a></a></li> eintragen -->
       </ul>
     </nav>
 
-    <!-- ▸ Hauptspalte + Werbespalte ◂ -->
+    <!-- ───────── Haupt­inhalt + Werbespalte ───────── -->
     <div class="page-wrap">
       <main><slot /></main>
-
-      <aside class="ad-slot">
-        <!-- Platzhalter – hier später AdSense‑Code einfügen -->
-        <div class="ad-placeholder">Anzeige 300 × 600</div>
-      </aside>
+      <aside class="ad-slot"><!-- hier kommt später AdSense‑Code --></aside>
     </div>
 
     <footer>
-      © 2025 | <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
+      © 2025 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
     </footer>
 
     <script src="/menu.js" defer></script>
   </body>
 </html>
+

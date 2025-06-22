@@ -1,12 +1,18 @@
 {
   "name": "dachfenster-kosten-nrw",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev":   "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lint":  "eslint . --ext .astro,.js,.mjs --ignore-path .gitignore"
   },
   "dependencies": {
-    "astro": "^4.7.0"
+    "astro": "^4.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.33.0"
   }
 }
