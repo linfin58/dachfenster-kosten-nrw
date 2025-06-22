@@ -81,4 +81,26 @@ main{flex:1;max-width:720px}
   .site-header{display:none}
   .page-wrap{margin-left:220px}
 }
+/* ▣ Layout‑Raster -------------------------------------------------------- */
+.page-wrap{display:flex;gap:2rem;max-width:1100px;margin:3rem auto}
+main{flex:1}
+.ad-slot{width:300px;flex:0 0 300px}
+.ad-placeholder{width:300px;height:600px;background:#ececec;border:1px dashed #aaa;
+                display:flex;align-items:center;justify-content:center;font:italic .9rem/1.4 system-ui}
+
+/* ▣ Navigation ----------------------------------------------------------- */
+.site-header{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#fff}
+#menuToggle{font-size:1.6rem;background:none;border:none;cursor:pointer}
+#sideMenu{background:#f5f5f5;padding:1rem;width:220px;min-height:100vh;position:fixed;left:0;top:0;transition:transform .3s ease}
+#sideMenu ul{list-style:none;padding:0;margin:0}
+#sideMenu a{text-decoration:none;color:#222}
+@media(max-width:900px){
+  #sideMenu{transform:translateX(-100%)}          /* versteckt */
+  #sideMenu.open{transform:none}                  /* eingeblendet */
+  .page-wrap{flex-direction:column}
+  .ad-slot{display:none}                          /* Ads auf Mobile ausblenden */
+}
+
+/* evtl. vorhandene alte Sidebar / Liste ausblenden, falls noch im Markup */
+main ul.local-links{display:none}
 

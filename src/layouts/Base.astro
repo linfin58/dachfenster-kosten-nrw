@@ -1,9 +1,14 @@
 ---
-/* Front‑matter: load global CSS + pass title */
+// Haupt‑Layout
 import "../styles/base.css";
 const { title = "Dachfenster NRW" } = Astro.props;
----
 
+//  ✨  alle Markdown‑Seiten automatisch einsammeln
+const pages = await Astro.glob("../pages/*.md");        // [{url, frontmatter, ...}, …]
+
+// Alphabetisch sortieren (oder nach eigener Logik)
+pages.sort((a, b) => a.url.localeCompare(b.url));
+---
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -13,36 +18,38 @@ const { title = "Dachfenster NRW" } = Astro.props;
   </head>
 
   <body>
-    <!-- ───────── Header + Hamburger ───────── -->
+    <!-- ■■■ Kopf + Hamburger ▣ -->
     <header class="site-header">
-      <button id="menuToggle" aria-label="Menü öffnen / schließen">☰</button>
-      <h1 class="site-title"><a href="/">Dachfenster&nbsp;NRW</a></h1>
+      <button id="menuToggle" aria-label="Menü öffnen"><span>☰</span></button>
+      <h1 class="site-title"><a href="/">Dachfenster NRW</a></h1>
     </header>
 
-    <!-- ───────── Seitenmenü (links) ───────── -->
+    <!-- ■■■ Seitenleiste ▣ -->
     <nav id="sideMenu">
       <ul>
         <li><strong>Praxis‑Artikel</strong></li>
-        <li><a href="/dachfenster-uwert-berechnen">U‑Wert berechnen</a></li>
-        <li><a href="/kondenswasser-verhindern-dachfenster">Kondenswasser verhindern</a></li>
-        <li><a href="/dachfenster-foerderung-nrw-2025">Förderung NRW 2025</a></li>
-        <li><a href="/innenfutter-selber-tauschen">Innenfutter tauschen</a></li>
-        <li><a href="/einbau-aufkeilrahmen-vorteile">Aufkeilrahmen Vorteile</a></li>
-        <!-- ► restliche Unterseiten als weitere <li><a></a></li> eintragen -->
+        {pages.map(page => (
+          <li><a href={page.url}>{page.frontmatter.navTitle ?? page.frontmatter.title}</a></li>
+        ))}
       </ul>
     </nav>
 
-    <!-- ───────── Haupt­inhalt + Werbespalte ───────── -->
+    <!-- ■■■ Seiten‑Inhalt + Werbespalte ▣ -->
     <div class="page-wrap">
       <main><slot /></main>
-      <aside class="ad-slot"><!-- hier kommt später AdSense‑Code --></aside>
+
+      <aside class="ad-slot">
+        <!-- später echten AdSense‑Code einfügen -->
+        <div class="ad-placeholder">300 × 600 Anzeige</div>
+      </aside>
     </div>
 
     <footer>
-      © 2025 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
+      © 2025 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
     </footer>
 
     <script src="/menu.js" defer></script>
   </body>
 </html>
+
 
