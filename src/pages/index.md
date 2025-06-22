@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/Base.astro
 title: "Dachfenster austauschen in NRW – was kostet es 2025?"
+nav: false
 description: "Aktuelle Preisübersicht, Förderprogramme und FAQ zum Dachfenster‑Austausch in Nordrhein‑Westfalen."
 pubDate: 2025‑06‑16
 ---

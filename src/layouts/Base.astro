@@ -1,13 +1,12 @@
 ---
-// Haupt‑Layout
+// /src/layouts/Base.astro
 import "../styles/base.css";
 const { title = "Dachfenster NRW" } = Astro.props;
 
-//  ✨  alle Markdown‑Seiten automatisch einsammeln
-const pages = await Astro.glob("../pages/*.md");        // [{url, frontmatter, ...}, …]
-
-// Alphabetisch sortieren (oder nach eigener Logik)
-pages.sort((a, b) => a.url.localeCompare(b.url));
+let pages = await Astro.glob("../pages/*.md");
+pages = pages
+  .filter(p => p.frontmatter.nav !== false)
+  .sort((a, b) => a.url.localeCompare(b.url));
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -18,38 +17,32 @@ pages.sort((a, b) => a.url.localeCompare(b.url));
   </head>
 
   <body>
-    <!-- ■■■ Kopf + Hamburger ▣ -->
     <header class="site-header">
-      <button id="menuToggle" aria-label="Menü öffnen"><span>☰</span></button>
-      <h1 class="site-title"><a href="/">Dachfenster NRW</a></h1>
+      <button id="menuToggle" aria-label="Menü"><span>☰</span></button>
+      <h1><a href="/">Dachfenster NRW</a></h1>
     </header>
 
-    <!-- ■■■ Seitenleiste ▣ -->
     <nav id="sideMenu">
       <ul>
         <li><strong>Praxis‑Artikel</strong></li>
-        {pages.map(page => (
-          <li><a href={page.url}>{page.frontmatter.navTitle ?? page.frontmatter.title}</a></li>
+        {pages.map(p => (
+          <li><a href={p.url}>{p.frontmatter.navTitle ?? p.frontmatter.title}</a></li>
         ))}
       </ul>
     </nav>
 
-    <!-- ■■■ Seiten‑Inhalt + Werbespalte ▣ -->
     <div class="page-wrap">
       <main><slot /></main>
 
       <aside class="ad-slot">
-        <!-- später echten AdSense‑Code einfügen -->
         <div class="ad-placeholder">300 × 600 Anzeige</div>
       </aside>
     </div>
 
     <footer>
-      © 2025 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
+      © 2025 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
     </footer>
 
     <script src="/menu.js" defer></script>
   </body>
 </html>
-
-
