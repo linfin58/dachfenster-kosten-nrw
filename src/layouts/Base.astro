@@ -1,48 +1,78 @@
 ---
-// /src/layouts/Base.astro
 import "../styles/base.css";
-const { title = "Dachfenster NRW" } = Astro.props;
+const { title = "Dachfenster NRW" } = Astro.props;
 
-let pages = await Astro.glob("../pages/*.md");
-pages = pages
-  .filter(p => p.frontmatter.nav !== false)
-  .sort((a, b) => a.url.localeCompare(b.url));
+/* ❶  Die Liste aller Praxis‑Artikel (Pfad ➜ src/pages)  */
+const menu = [
+  { slug: "/", label: "Dachfenster austauschen – Kosten 2025" },
+  { slug: "/baugenemigung-dachfenster-nrw", label: "Baugenehmigung Dachfenster?" },
+  { slug: "/dachfenster-einbruchschutz-klasse", label: "Einbruchschutz – RC2 Nachrüstsatz" },
+  { slug: "/dachfenster-energetischer-nachweis-nrw", label: "Energetischer Nachweis" },
+  { slug: "/dachfenster-foerderung-nrw-2025", label: "Förderung NRW 2025" },
+  { slug: "/dachfenster-pflegen-alu-holz", label: "Dachfenster richtig pflegen" },
+  { slug: "/dachfenster-skandinavische-masse", label: "Skandinavische Maße umrechnen" },
+  { slug: "/dachfenster-steuerbonus-§35c", label: "Steuerbonus §35c – 20 %" },
+  { slug: "/dachfenster-umrüsten-vs-neubau", label: "Nachrüsten vs. Neubau" },
+  { slug: "/dachfenster-uwert-berechnen", label: "U‑Wert berechnen" },
+  { slug: "/denkmalgeschütztes-dachfenster-regeln", label: "Denkmalschutz – Regeln" },
+  { slug: "/einbau-aufkeilrahmen-vorteile", label: "Aufkeilrahmen Vorteile" },
+  { slug: "/hagelschutzfolie-procontra", label: "Hagelschutzfolie – Pro / Contra" },
+  { slug: "/innenfutter-selber-tauschen", label: "Innenfutter tauschen" },
+  { slug: "/kfw-261-dachflaechenfenster", label: "KfW 261 für Dachfenster" },
+  { slug: "/kondenswasser-verhindern-dachfenster", label: "Kondenswasser verhindern" },
+  { slug: "/kostenvergleich-kalkulator-3-fenster", label: "Kosten‑Kalkulator (3 Fenster)" },
+  { slug: "/pcb-belastung-altes-dachfenster", label: "PCB‑Belastung – Altfenster" },
+  { slug: "/praxistest-pu-anschlussband", label: "PU‑Anschlussband im Praxistest" },
+  { slug: "/rollladen-vs-hitzeschutzmarkise", label: "Rollladen vs. Hitzeschutzmarkise" },
+  { slug: "/schallschutzklasse-dachfenster", label: "Schallschutzklassen Tabelle" },
+  { slug: "/smart-home-steuerung-velux-active", label: "VELUX Active im Test" },
+];
 ---
+
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title}</title>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title>
+</head>
 
-  <body>
-    <header class="site-header">
-      <button id="menuToggle" aria-label="Menü"><span>☰</span></button>
-      <h1><a href="/">Dachfenster NRW</a></h1>
-    </header>
+<body>
+  <!-- ▸ ❷  Kopfzeile --------------------------------------------------------- -->
+  <header class="site-header">
+    <button id="burger" aria-label="Menü öffnen">☰</button>
+    <h1><a href="/">Dachfenster NRW</a></h1>
+  </header>
 
-    <nav id="sideMenu">
-      <ul>
-        <li><strong>Praxis‑Artikel</strong></li>
-        {pages.map(p => (
-          <li><a href={p.url}>{p.frontmatter.navTitle ?? p.frontmatter.title}</a></li>
-        ))}
-      </ul>
-    </nav>
+  <!-- ▸ ❸  Flex‑Layout: linke Scroll‑Leiste / Inhalt / rechte Ad‑Spalte ------- -->
+  <div class="layout">
+    <!-- linke Scroll‑Leiste -->
+    <aside class="side-nav" id="sideNav">
+      <strong>Praxis‑Artikel</strong>
+      <nav>
+        {menu.map(item => <a href={item.slug}>{item.label}</a>)}
+      </nav>
+    </aside>
 
-    <div class="page-wrap">
-      <main><slot /></main>
+    <!-- Hauptinhalt -->
+    <main><slot /></main>
 
-      <aside class="ad-slot">
-        <div class="ad-placeholder">300 × 600 Anzeige</div>
-      </aside>
-    </div>
+    <!-- Werbespalte (Platzhalter) -->
+    <aside class="ad-slot">
+      <div class="ad-placeholder">300 × 600 Anzeige</div>
+    </aside>
+  </div>
 
-    <footer>
-      © 2025 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a>
-    </footer>
+  <!-- ▸ ❹  Fußzeile ----------------------------------------------------------- -->
+  <footer>
+    © 2025 · <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a>
+  </footer>
 
-    <script src="/menu.js" defer></script>
-  </body>
+  <!-- ▸ ❺  kleines JS für Burger/Sidenav -------------------------------------- -->
+  <script>
+    document.getElementById("burger").onclick = () =>
+      document.getElementById("sideNav").classList.toggle("open");
+  </script>
+</body>
 </html>
+

@@ -132,4 +132,30 @@ main{flex:1}
   .page-wrap{flex-direction:column}
   .ad-slot{display:none}
 }
+/* --- Layout ------------------------------------------------------------ */
+body{margin:0;background:#f9fafc;color:#222;line-height:1.6;font-family:system-ui,Roboto,sans-serif}
+.site-header{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border-bottom:1px solid #dde}
+.site-header h1{font-size:1.1rem;margin:0}
+.site-header a{text-decoration:none;color:#037}
+#burger{background:none;border:0;font-size:1.4rem;cursor:pointer}
+
+/* Flex‑Shell */
+.layout{display:flex;max-width:1200px;margin:0 auto}
+.side-nav{width:260px;min-height:calc(100vh - 70px);overflow-y:auto;padding:1rem .75rem .5rem;background:#f5f7fa;border-right:1px solid #dde;transition:transform .3s}
+.side-nav nav{display:flex;flex-direction:column;gap:.35rem;margin-top:.5rem}
+.side-nav a{text-decoration:none;color:#025;padding:.15rem 0}
+.side-nav a:hover{color:#000}
+.side-nav.open{transform:translateX(0)}
+@media(max-width:980px){
+  .side-nav{position:fixed;z-index:30;left:0;top:0;transform:translateX(-100%);box-shadow:3px 0 8px rgba(0,0,0,.15)}
+}
+
+main{flex:1;padding:2rem 1.5rem;min-width:0}
+.ad-slot{width:320px;flex:0 0 320px;padding:2rem 1rem}
+.ad-placeholder{width:300px;height:600px;border:2px dashed #aac;display:flex;align-items:center;justify-content:center;color:#77a;font:16px/1.2 monospace}
+
+/* Kleine kosmetische Korrekturen */
+table{border-collapse:collapse;width:100%;margin:1rem 0}
+th,td{border:1px solid #ccd;padding:.5rem;text-align:left}
+h1,h2,h3{color:#034;margin:1.2rem 0 .6rem}
 
