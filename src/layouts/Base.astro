@@ -4,7 +4,7 @@
 import "../styles/base.css";
 const { title = "Dachfenster NRW" } = Astro.props;
 
-/*  Liste aller Praxis‑Artikel (für die Sidebar)  */
+import AdBanner from "../components/AdBanner.astro";
 const menu = [
   { slug: "/",                                    label: "Dachfenster austauschen – Kosten 2025" },
   { slug: "/baugenehmigung-dachfenster-nrw",      label: "Baugenehmigung Dachfenster?" },
@@ -27,14 +27,13 @@ const menu = [
   { slug: "/schallschutzklasse-dachfenster",      label: "Schallschutzklassen Tabelle" },
   { slug: "/smart-home-steuerung-velux-active",   label: "VELUX Active im Test" }
 ];
-import AdBanner from "../components/AdBanner.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="de">
   <head>
     <!-- Google AdSense Grund‑Skript (GENAU EINMAL pro Seite laden) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2438324761912025"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2438324761912025 "
             crossorigin="anonymous"></script>
 
     <!-- Bestehende Meta‑Tags, CSS usw. -->
