@@ -1,89 +1,89 @@
 ---
+/*  Front‑Matter  (zwischen den --- Zeilen)  */
+/*  HIER NICHTS MEHR LÖSCHEN!                */
 import "../styles/base.css";
-const { title = "Dachfenster NRW" } = Astro.props;
-import AdBanner from '../components/AdBanner.astro';
----
+const { title = "Dachfenster NRW" } = Astro.props;
 
-/* ❶  Die Liste aller Praxis‑Artikel (Pfad ➜ src/pages)  */
+/*  Liste aller Praxis‑Artikel (für die Sidebar)  */
 const menu = [
-  { slug: "/", label: "Dachfenster austauschen – Kosten 2025" },
-  { slug: "/baugenemigung-dachfenster-nrw", label: "Baugenehmigung Dachfenster?" },
-  { slug: "/dachfenster-einbruchschutz-klasse", label: "Einbruchschutz – RC2 Nachrüstsatz" },
-  { slug: "/dachfenster-energetischer-nachweis-nrw", label: "Energetischer Nachweis" },
-  { slug: "/dachfenster-foerderung-nrw-2025", label: "Förderung NRW 2025" },
-  { slug: "/dachfenster-pflegen-alu-holz", label: "Dachfenster richtig pflegen" },
-  { slug: "/dachfenster-skandinavische-masse", label: "Skandinavische Maße umrechnen" },
-  { slug: "/dachfenster-steuerbonus-§35c", label: "Steuerbonus §35c – 20 %" },
-  { slug: "/dachfenster-umrüsten-vs-neubau", label: "Nachrüsten vs. Neubau" },
-  { slug: "/dachfenster-uwert-berechnen", label: "U‑Wert berechnen" },
-  { slug: "/denkmalgeschütztes-dachfenster-regeln", label: "Denkmalschutz – Regeln" },
-  { slug: "/einbau-aufkeilrahmen-vorteile", label: "Aufkeilrahmen Vorteile" },
-  { slug: "/hagelschutzfolie-procontra", label: "Hagelschutzfolie – Pro / Contra" },
-  { slug: "/innenfutter-selber-tauschen", label: "Innenfutter tauschen" },
-  { slug: "/kfw-261-dachflaechenfenster", label: "KfW 261 für Dachfenster" },
-  { slug: "/kondenswasser-verhindern-dachfenster", label: "Kondenswasser verhindern" },
-  { slug: "/kostenvergleich-kalkulator-3-fenster", label: "Kosten‑Kalkulator (3 Fenster)" },
-  { slug: "/pcb-belastung-altes-dachfenster", label: "PCB‑Belastung – Altfenster" },
-  { slug: "/praxistest-pu-anschlussband", label: "PU‑Anschlussband im Praxistest" },
-  { slug: "/rollladen-vs-hitzeschutzmarkise", label: "Rollladen vs. Hitzeschutzmarkise" },
-  { slug: "/schallschutzklasse-dachfenster", label: "Schallschutzklassen Tabelle" },
-  { slug: "/smart-home-steuerung-velux-active", label: "VELUX Active im Test" },
+  { slug: "/",                                    label: "Dachfenster austauschen – Kosten 2025" },
+  { slug: "/baugenehmigung-dachfenster-nrw",      label: "Baugenehmigung Dachfenster?" },
+  { slug: "/dachfenster-einbruchschutz-klasse",   label: "Einbruchschutz – RC2 Nachrüstsatz" },
+  { slug: "/dachfenster-energetischer-nachweis",  label: "Energetischer Nachweis" },
+  { slug: "/dachfenster-foerderung-nrw-2025",     label: "Förderung NRW 2025" },
+  { slug: "/dachfenster-pflegen-alu-holz",        label: "Dachfenster richtig pflegen" },
+  { slug: "/dachfenster-steuerbonus-§35c",        label: "Steuerbonus §35c – 20 %" },
+  { slug: "/dachfenster-umruesten-vs-neubau",     label: "Nachrüsten vs. Neubau" },
+  { slug: "/u-wert-berechnen",                    label: "U‑Wert berechnen" },
+  { slug: "/denkmalschutz-dachfenster",           label: "Denkmalschutz – Regeln" },
+  { slug: "/aufkeilrahmen-vorteile",              label: "Aufkeilrahmen Vorteile" },
+  { slug: "/hagelschutzfolie-procontra",          label: "Hagelschutzfolie – Pro / Contra" },
+  { slug: "/innenfutter-selber-tauschen",         label: "Innenfutter tauschen" },
+  { slug: "/kfw-261-dachflaechenfenster",         label: "KfW 261 für Dachfenster" },
+  { slug: "/kondenswasser-verhindern-dachfenster",label: "Kondenswasser verhindern" },
+  { slug: "/kostenvergleich-kalkulator-3-fenster",label: "Kosten‑Kalkulator (3 Fenster)" },
+  { slug: "/pcb-belastung-altes-dachfenster",     label: "PCB Belastung – Altes Dachfenster" },
+  { slug: "/rollladen-vs-hitzeschutzmarkise",     label: "Rollladen vs. Hitzeschutzmarkise" },
+  { slug: "/schallschutzklasse-dachfenster",      label: "Schallschutzklassen Tabelle" },
+  { slug: "/smart-home-steuerung-velux-active",   label: "VELUX Active im Test" }
 ];
+import AdBanner from "../components/AdBanner.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="de">
-<head>
----
-// nichts im Front‑Matter ändern
----
-<head>
-  <!-- Google AdSense (wird auf jeder Seite genau einmal geladen) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-pub-2438324761912025"
-          crossorigin="anonymous"></script>
-  
-  <!-- ▸ bestehende Meta‑Tags, Title, CSS‑Einbindungen folgen hier … -->
+  <head>
+    <!-- Google AdSense Grund‑Skript (GENAU EINMAL pro Seite laden) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2438324761912025"
+            crossorigin="anonymous"></script>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{title}</title>
-</head>
+    <!-- Bestehende Meta‑Tags, CSS usw. -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+  </head>
 
-<body>
-  <!-- ▸ ❷  Kopfzeile --------------------------------------------------------- -->
-  <header class="site-header">
-    <button id="burger" aria-label="Menü öffnen">☰</button>
-    <h1><a href="/">Dachfenster NRW</a></h1>
-  </header>
+  <body>
+    <!-- ▸ Kopfbereich -->
+    <header class="site-header">
+      <button id="burger" aria-label="Menü öffnen">☰</button>
+      <h1><a href="/">Dachfenster NRW</a></h1>
+    </header>
 
-  <!-- ▸ ❸  Flex‑Layout: linke Scroll‑Leiste / Inhalt / rechte Ad‑Spalte ------- -->
-  <div class="layout">
-    <!-- linke Scroll‑Leiste -->
-    <aside class="side-nav" id="sideNav">
-      <strong>Praxis‑Artikel</strong>
-      <nav>
-        {menu.map(item => <a href={item.slug}>{item.label}</a>)}
-      </nav>
-    </aside>
+    <!-- ▸ Flex‑Layout:   | Sidebar | Inhalt | Rechte Ad‑Spalte | -->
+    <div class="layout">
+      <!-- linke Scroll‑Leiste -->
+      <aside class="side-nav" id="sideNav">
+        <strong>Praxis‑Artikel</strong>
+        <nav>
+          {menu.map(item => <a href={item.slug}>{item.label}</a>)}
+        </nav>
+      </aside>
 
-    <AdBanner slot="in-article" format="auto" fullWidth />
+      <!-- Haupt‑Inhalt -->
+      <main>
+        <slot />
+        <!-- Anzeige im Textfluss (wide responsive) -->
+        <AdBanner slot="in‑article" format="auto" fullWidth />
+      </main>
 
-    <!-- rechte Werbespalte -->
-<aside class="sidebar">
-  <AdBanner slot="sidebar" format="rectangle" />
-</aside>
+      <!-- Rechte Spalte -->
+      <aside class="sidebar">
+        <AdBanner slot="sidebar" format="rectangle" />
+      </aside>
+    </div>
 
-  <!-- ▸ ❹  Fußzeile ----------------------------------------------------------- -->
-  <footer>
-<AdBanner slot="footer" format="horizontal" fullWidth />
-    © 2025 · <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a>
-  </footer>
+    <!-- ▸ Fußzeile -->
+    <footer>
+      <AdBanner slot="footer" format="horizontal" fullWidth />
+      © 2025 • <a href="/impressum">Impressum</a> • <a href="/datenschutz">Datenschutz</a>
+    </footer>
 
-  <!-- ▸ ❺  kleines JS für Burger/Sidenav -------------------------------------- -->
-  <script>
-    document.getElementById("burger").onclick = () =>
-      document.getElementById("sideNav").classList.toggle("open");
-  </script>
-</body>
+    <!-- Burger‑Menü JS -->
+    <script is:inline>
+      document.getElementById("burger").onclick = () =>
+        document.getElementById("sideNav").classList.toggle("open");
+    </script>
+  </body>
 </html>
 
