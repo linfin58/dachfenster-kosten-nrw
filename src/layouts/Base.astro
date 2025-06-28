@@ -15,6 +15,9 @@ const menu = [
   { slug: "/datenschutz",               label: "Datenschutz" },
   { slug: "/impressum",                 label: "Impressum" }
 ];
+
+const { ads = true } = Astro.props;   // neu: Standard = true
+
 ---
 
 <!DOCTYPE html>
@@ -51,24 +54,22 @@ const menu = [
       <main>
         <slot />
 
-        {Astro.props.ads === false
-          ? null
-          : <AdBanner slot="in-article" format="auto" fullWidth />
-        }
-      </main>
+        { ads ? <AdBanner slot="in-article" format="auto" fullWidth /> : null }
 
+      </main>
 
       <!-- Rechte Spalte -->
       <aside class="sidebar">
-        <AdBanner slot="sidebar" format="rectangle" />
-      </aside>
+  { ads ? <AdBanner slot="sidebar" format="rectangle" /> : null }
+</aside>
+
     </div>
 
     <!-- ▸ Fußzeile -->
     <footer>
-      <AdBanner slot="footer" format="horizontal" fullWidth />
-      © 2025 • <a href="/impressum">Impressum</a> • <a href="/datenschutz">Datenschutz</a>
-    </footer>
+  { ads ? <AdBanner slot="footer" format="horizontal" fullWidth /> : null }
+  © 2025 • <a href="/impressum">Impressum</a> • <a href="/datenschutz">Datenschutz</a>
+</footer>
 
     <!-- Burger‑Menü JS -->
     <script is:inline>
