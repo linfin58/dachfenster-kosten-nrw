@@ -8,10 +8,6 @@ pubDate: 2025‑06‑16
 ---
 # Dachfenster austauschen in NRW – was kostet es 2025?
 
-> **🚀 Direkt zum interaktiven&nbsp;Kosten‑Kalkulator**  
-> *Preis in 30 Sek. für 1 – 3 Dachfenster berechnen.*  
-> [Jetzt&nbsp;Kalkulation&nbsp;starten&nbsp;»](/kosten-kalkulator-2025){.cta}
-
 ## 1 | Welche Faktoren treiben den Preis?
 ...
 
@@ -23,7 +19,11 @@ pubDate: 2025‑06‑16
 | Innenfutter & Dampfsperre             | **120 €** |
 | **Gesamt pro Fenster**                | **≈ 1 140 €** |
 
-*(Preise aus 27 Angebots­vergleichen in Köln, Münster und Düsseldorf, Stand 05/2025.)*
+<p style="text-align:center">
+  <a href="/kosten-kalkulator-2025" class="cta slim">
+    Kosten jetzt berechnen&nbsp;»
+  </a>
+</p>
 
 ## 1 | Welche Faktoren treiben den Preis?
 

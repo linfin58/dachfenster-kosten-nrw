@@ -170,5 +170,10 @@ a.cta{
   text-decoration:none;
   font-weight:600;
 }
+/* schlanker CTA nur für Indexseite */
+a.cta.slim{
+  padding:.4rem 1rem;   /* kleiner */
+  font-size:.9rem;
+}
 a.cta:hover{background:#0f876f}
 
