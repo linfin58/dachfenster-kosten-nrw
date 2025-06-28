@@ -47,15 +47,15 @@ const menu = [
         </nav>
       </aside>
 
-      <!-- Haupt‑Inhalt --
-<main>
-  <slot />
+      <!-- Haupt‑Inhalt -->
+      <main>
+        <slot />
 
-  {Astro.props.ads === false
-    ? null
-    : <AdBanner slot="in-article" format="auto" fullWidth />
-  }
-</main>
+        {Astro.props.ads === false
+          ? null
+          : <AdBanner slot="in-article" format="auto" fullWidth />
+        }
+      </main>
 
 
       <!-- Rechte Spalte -->
