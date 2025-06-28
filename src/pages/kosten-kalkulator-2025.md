@@ -1,74 +1,65 @@
 ---
 layout: ../layouts/Base.astro
-title: "Dachfenster‑Kosten 2025 – Interaktiver Kalkulator, Preisfaktoren & Praxisbeispiele"
-description: "Rechne Dein Budget in 30 Sekunden: Gesamtkosten aus Fenstertyp, Größe, Innenfutter & Einbauhöhe – plus 3 Praxisfälle."
+title: "Dachfenster‑Kosten 2025 – Interaktiver Kalkulator & Praxisbeispiele"
+description: "Gesamtkosten für 1 – 3 Dachfenster in 30 Sekunden berechnen – inkl. Preis­faktoren & 3 Praxisfällen (2025)."
 pubDate: 2025‑06‑25
 ---
 
-# Dachfenster‑Kosten in 30 Sekunden berechnen
+<h2>Dachfenster‑Kosten in&nbsp;30 Sekunden berechnen</h2>
 
-<label>Anzahl Fenster (1–10): <input id="qty" type="number" min="1" max="10" value="1"></label>
-<label>Fenstertyp  
+<!-- Formular -------------------------------------------------------- -->
+<label>Anzahl&nbsp;Fenster&nbsp;(1‑10):
+  <input id="qty" type="number" min="1" max="10" value="1">
+</label>
+
+<!-- Dropdown Fenstertyp -->
 <select id="type">
   <option value="0">Schwingfenster (Standard)</option>
-  <option value="180">Klapp‑/Schwing</option>
-  <option value="290">Elektrisch INTEGRA</option>
-</select></label>
-<label>Innenfutter  
+  <option value="180">Klapp/Schwing</option>
+  <option value="290">Elektro INTEGRA</option>
+  <option value="450">Panorama‑Klapp</option>            <!-- NEU -->
+  <option value="600">Flachdach‑Kuppel</option>          <!-- NEU -->
+</select>
+
+<!-- Dropdown Innenfutter -->
 <select id="liner">
-  <option value="85">Gipskarton (+85 €)</option>
-  <option value="190">Holz weiß lackiert (+190 €)</option>
+  <option value="85">Gipskarton (+85 €)</option>
+  <option value="190">Holz weiß lackiert (+190 €)</option>
   <option value="0">Keins (Eigenleistung)</option>
-</select></label>
-<button onclick="calc()">Kosten ausrechnen</button>
+  <option value="260">Kunststoff-Fertigfutter (+260 €)</option> <!-- NEU -->
+</select>
 
-> **Ergebnis:** <span id="result" style="font-weight:bold">–</span>
 
+<!-- Button -->
+<button onclick="calcPrice()">Kosten ausrechnen</button>
+
+<!-- Skript -->
 <script is:inline>
-  function calc(){
-    const q = +document.getElementById('qty').value||1;
-    const base = 950;
-    const typeUp = +document.getElementById('type').value;
-    const liner = +document.getElementById('liner').value;
-    const labour = 330;
-    const total = (base+typeUp+liner+labour)*q;
-    document.getElementById('result').innerText =
-      total.toLocaleString('de‑DE') + " € inkl. MwSt.";
-  }
+function calcPrice(){
+  const q      = +document.getElementById('qty').value || 1;
+  const base   = 950;
+  const typeUp = +document.getElementById('type').value;
+  const liner  = +document.getElementById('liner').value;
+  const labour = 330;
+  const total  = (base + typeUp + liner + labour) * q;
+  document.getElementById('result').innerText =
+       total.toLocaleString('de-DE') + ' € inkl. MwSt.';
+}
 </script>
 
----
-
-## Was treibt den Preis hoch?
-
-| Faktor | Ø Aufpreis | Tipp zum Sparen |
-|--------|-----------:|-----------------|
-| 3‑fach‑Verglasung | 130 € | Nur < 20° Dachneigung |
-| Aufkeilrahmen | 140 € | Bei 45° unnötig |
-| Gerüst (> 5 m) | 90 € | Rollgerüst mieten |
-| RC2‑Einbruchschutz | 75 € | Gleich mitbestellen, Nachrüsten teurer |
-| **BAFA‑Förderabzug** | *‑15 %* | s. Seite *Förderung & §35c* |
+<p><strong>Ergebnis:</strong> <span id="result">–</span></p>
 
 ---
 
-## Praxisbeispiel 1 – Reihenhaus Köln
+### Was treibt den Preis hoch?
 
-- **2 × Schwingfenster, RC2, Innenfutter Holz**  
-- Material = 2 × (950+75+190) = 2 640 €  
-- Einbau = 2 × 310 € = 620 €  
-- **Gesamt brutto** = **3 260 €**  
-- BAFA 15 % iSFP → 489 € Zuschuss → **2 771 € Effektiv**
+| Faktor                       | Ø Aufpreis | Tipp zum Sparen               |
+|------------------------------|-----------:|-------------------------------|
+| 3‑fach‑Verglasung            | 130 €      | Nur < 20 ° Dachneigung        |
+| Aufkeilrahmen                | 140 €      | Bei 45 ° unnötig              |
+| Gerüst &gt; 5 m              |  90 €      | Rollgerüst mieten             |
+| RC2‑Einbruchschutz           |  75 €      | Gleich mitbestellen           |
+| BAFA‑Förderabzug (–15 %)     | −          | s. Seite „Förderung & § 35c“  |
 
-*(Praxisbeispiele 2 & 3 folgen – Dachgeschoss‑Ausbau, Denkmalschutzhaus …)*
+<!-- darunter – Praxisbeispiele wie bisher … -->
 
----
-
-## FAQ
-
-**Warum schwanken Angebote um > 20 %?**  
-Regionale Lohnkosten + Saisonaufschlag Juli/Aug.
-
-**Kann ich selber einbauen?**  
-Ja, aber Gewährleistung entfällt. Spar‑potenzial max. 25 %.
-
-*(Verlinke hier intern auf „Umrüsten vs. Neubau“ und „U‑Wert & Nachweis“).*

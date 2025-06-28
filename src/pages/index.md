@@ -2,14 +2,15 @@
 layout: ../layouts/Base.astro
 title: "Dachfenster austauschen in NRW – was kostet es 2025?"
 nav: false
+ads: false
 description: "Aktuelle Preisübersicht, Förderprogramme und FAQ zum Dachfenster‑Austausch in Nordrhein‑Westfalen."
 pubDate: 2025‑06‑16
 ---
 # Dachfenster austauschen in NRW – was kostet es 2025?
 
-> ### 👉 Direkt zum **interaktiven Kosten‑Kalkulator**
-> Berechnen Sie in 30 Sekunden den Gesamtpreis für 1 – 3 Dachfenster.  
-> <a href="/kosten-kalkulator-2025" class="cta">Kalkulator starten →</a>
+> **🚀 Direkt zum interaktiven&nbsp;Kosten‑Kalkulator**  
+> *Preis in 30 Sek. für 1 – 3 Dachfenster berechnen.*  
+> [Jetzt&nbsp;Kalkulation&nbsp;starten&nbsp;»](/kosten-kalkulator-2025){.cta}
 
 ## 1 | Welche Faktoren treiben den Preis?
 ...

@@ -47,12 +47,16 @@ const menu = [
         </nav>
       </aside>
 
-      <!-- Haupt‑Inhalt -->
-      <main>
-        <slot />
-        <!-- Anzeige im Textfluss (wide responsive) -->
-        <AdBanner slot="in‑article" format="auto" fullWidth />
-      </main>
+      <!-- Haupt‑Inhalt --
+<main>
+  <slot />
+
+  {Astro.props.ads === false
+    ? null
+    : <AdBanner slot="in-article" format="auto" fullWidth />
+  }
+</main>
+
 
       <!-- Rechte Spalte -->
       <aside class="sidebar">

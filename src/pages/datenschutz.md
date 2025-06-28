@@ -2,6 +2,7 @@
 layout: ../layouts/Base.astro
 title: Datenschutz
 nav: false
+ads: false
 ---
 
 ## 1 | Allgemeine Hinweise  
